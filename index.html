@@ -38,7 +38,7 @@
             opacity: 0.08;
         }
 
-        /* Sistema de Giro 3D */
+        /* Fixed 3D Flip System */
         .flip-card {
             perspective: 2000px;
             cursor: pointer;
@@ -64,11 +64,11 @@
             flex-direction: column;
             border: 4px solid #000000;
             background: white;
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
         @media (min-width: 768px) {
             .flip-card-front, .flip-card-back {
-                padding: 2.2rem;
+                padding: 1.8rem;
             }
         }
         .flip-card-back {
@@ -76,9 +76,9 @@
             z-index: 10;
         }
 
-        /* Banderas CSS (Sin bordes) */
-        .flag { width: 65px; height: 42px; border: none; flex-shrink: 0; position: relative; overflow: hidden; }
-        .flag-eu { background: #003399; display: grid; grid-template-columns: repeat(3, 1fr); color: yellow; font-size: 10px; place-items: center; }
+        /* CSS Flags (NO Borders) */
+        .flag { width: 55px; height: 35px; border: none; flex-shrink: 0; position: relative; overflow: hidden; }
+        .flag-eu { background: #003399; display: grid; grid-template-columns: repeat(3, 1fr); color: yellow; font-size: 8px; place-items: center; }
         .flag-it { display: flex; }
         .flag-it div { flex: 1; }
         .flag-it .g { background: #009246; }
@@ -86,25 +86,25 @@
         .flag-it .r { background: #ce2b37; }
         .flag-tos { background: #ffffff; border-top: 10px solid #ce2b37; border-bottom: 10px solid #ce2b37; }
         .flag-fi { background: #ffffff; position: relative; }
-        .flag-fi::after { content: "⚜"; color: #ce2b37; position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; font-size: 24px; }
+        .flag-fi::after { content: "⚜"; color: #ce2b37; position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; font-size: 22px; }
 
-        /* Tipografía Proporcional */
-        .hero-title { font-size: clamp(2.2rem, 8vw, 4.8rem); line-height: 0.9; letter-spacing: -0.04em; }
-        .card-header-text { font-size: clamp(1.6rem, 3.5vw, 2.2rem); line-height: 1; }
-        .card-body-text { font-size: clamp(1rem, 1.1vw, 1.25rem); font-weight: 700; line-height: 1.25; }
+        /* Typography */
+        .hero-title { font-size: clamp(2rem, 7vw, 4.2rem); line-height: 0.9; letter-spacing: -0.04em; }
+        .card-header-text { font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 1; }
+        .card-body-text { font-size: clamp(0.85rem, 1vw, 1.1rem); font-weight: 700; line-height: 1.2; }
         
-        .node-link { font-size: 10px; font-weight: 800; text-transform: uppercase; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; line-height: 1.6; }
+        .node-link { font-size: 9px; font-weight: 800; text-transform: uppercase; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; line-height: 1.4; }
         .node-link:hover { color: #f43f5e; }
         
-        .stat-hero { font-size: clamp(3.5rem, 8vw, 5rem); line-height: 1; margin: 0.5rem 0; }
+        .stat-display { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1; }
 
-        /* Elementos Visuales */
-        .viz-box { height: 130px; border: 3px solid black; margin: 1rem 0; position: relative; overflow: hidden; background: #fafafa; }
+        /* Visual Elements */
+        .viz-box { height: 120px; border: 3px solid black; margin: 1rem 0; position: relative; overflow: hidden; background: #fafafa; }
         .wave-layer { position: absolute; bottom: 0; width: 200%; height: 50%; background: #002366; opacity: 0.1; animation: slide 6s linear infinite; }
         @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        .rank-bars { display: flex; align-items: flex-end; justify-content: space-around; height: 110px; padding: 10px; gap: 8px; }
-        .bar-unit { background: #10b981; border: 3px solid black; width: 45px; }
+        .rank-bars { display: flex; align-items: flex-end; justify-content: space-around; height: 100px; padding: 10px; gap: 6px; }
+        .bar-unit { background: #10b981; border: 3px solid black; width: 35px; }
 
         .tilt-l { transform: rotate(-1.2deg); }
         .tilt-r { transform: rotate(1.2deg); }
@@ -115,7 +115,7 @@
             box-shadow: 4px 4px 0px 0px #FFDB58;
         }
 
-        .signature-text { font-family: 'Space Grotesk', sans-serif; font-weight: 300; font-size: 12px; }
+        .signature-text { font-family: 'Space Grotesk', sans-serif; font-weight: 300; font-size: 11px; }
     </style>
 </head>
 <body class="bg-mustard font-body text-street selection:bg-royal selection:text-white">
@@ -127,19 +127,19 @@
         <button onclick="changeLang('en')" id="btn-en" class="lang-btn px-5 py-1.5 text-[12px] md:text-[13px] font-heading text-white border-2 border-white hover:bg-white hover:text-black transition-all uppercase">English</button>
     </nav>
 
-    <!-- HEADER: PORTADA DEL LABORATORIO -->
+    <!-- HEADER: RESEARCH LAB COVER -->
     <header class="m-4 md:m-8 bg-white comic-border shadow-hard p-10 md:p-14 relative overflow-hidden">
         <div class="absolute inset-0 halftone"></div>
         <div class="relative z-10">
-            <div class="flex flex-wrap justify-end items-center mb-8 border-b-8 border-street pb-4">
-                <p class="signature-text text-royal text-right italic">
-                    Prepared by Urban Lab Risk, MAMR-2025
+            <div class="flex flex-wrap justify-end items-center mb-6 border-b-8 border-street pb-4">
+                <p class="signature-text text-royal text-right italic opacity-70">
+                    Prepared by Lab Urban Risk
                 </p>
             </div>
             <h1 id="main-title" class="hero-title font-heading uppercase italic tracking-tighter mb-8 text-royal text-center md:text-left">
                 URBAN ECONOMICS <br> RESEARCH LAB
             </h1>
-            <p id="sub-title" class="text-xl md:text-5xl font-extrabold bg-royal text-white inline-block px-10 py-4 comic-border -rotate-1 uppercase tracking-tighter">
+            <p id="sub-title" class="text-lg md:text-4xl font-extrabold bg-royal text-white inline-block px-8 py-3 comic-border -rotate-1 uppercase tracking-tighter">
                 Housing prices & climate risk
             </p>
         </div>
@@ -147,216 +147,209 @@
 
     <main class="max-w-7xl mx-auto p-4 md:p-8 space-y-24 pb-32">
 
-        <!-- BLOQUE 1: ESCALAS TERRITORIALES -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
+        <!-- BLOQUE 1: ESCALAS TERRITORIALES (SQUARE BOXES) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
             
             <!-- UE -->
-            <div class="flip-card h-[640px] md:h-[680px] tilt-l" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card aspect-square tilt-l" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <!-- FRENTE -->
+                    <!-- FRONT: Info + Data -->
                     <div class="flip-card-front flex flex-col shadow-hard">
-                        <div class="flex justify-between items-start mb-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="flag flag-eu"><span>★</span><span>★</span><span>★</span></div>
-                            <span class="text-[12px] font-black text-slate-400 uppercase tracking-widest">Scale: UE</span>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scale: UE</span>
                         </div>
-                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-6" data-i18n="t-ue">Regulación Global</h2>
-                        <p class="card-body-text text-street mb-10" data-i18n="d-ue">Monitoreo de indicadores macroeconómicos y estabilidad financiera de los activos inmobiliarios europeos.</p>
+                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-3" data-i18n="t-ue">Regulación Global</h2>
+                        <p class="card-body-text text-street mb-4 flex-grow overflow-hidden" data-i18n="d-ue">Monitoreo de indicadores macroeconómicos y estabilidad financiera europea.</p>
                         
-                        <div class="mt-auto bg-slate-50 comic-border-sm p-6 text-center">
-                            <div class="text-6xl font-heading text-royal mb-2">+4.0%</div>
-                            <p class="text-[13px] font-black uppercase mb-1" data-i18n="bt-ue">House Price Index</p>
+                        <div class="bg-slate-50 comic-border-sm p-4 text-center">
+                            <div class="stat-display font-heading text-royal">+4.0%</div>
+                            <p class="text-[10px] font-black uppercase" data-i18n="bt-ue">House Price Index</p>
                         </div>
                     </div>
-                    <!-- REVERSO -->
+                    <!-- BACK: Small Clickable Links -->
                     <div class="flip-card-back bg-royal text-white flex flex-col">
-                        <p class="text-[14px] font-black text-mustard uppercase mb-6 border-b-2 border-white/20 pb-2" data-i18n="act-t">Nodos Institucionales:</p>
-                        <div class="grid grid-cols-1 gap-y-4 overflow-y-auto pr-2">
-                            <a href="https://ec.europa.eu/eurostat" target="_blank" class="node-link">Eurostat (HPI)</a>
-                            <a href="https://www.ecb.europa.eu" target="_blank" class="node-link">European Central Bank</a>
-                            <a href="https://www.eea.europa.eu" target="_blank" class="node-link">Environment Agency (EEA)</a>
-                            <a href="https://joint-research-centre.ec.europa.eu" target="_blank" class="node-link">JRC Commission</a>
-                            <a href="https://www.enhr.net" target="_blank" class="node-link">ENHR Network</a>
-                            <a href="https://www.housingeurope.eu" target="_blank" class="node-link">Housing Europe</a>
-                            <a href="https://www.espon.eu" target="_blank" class="node-link">ESPON Network</a>
+                        <p class="text-[12px] font-black text-mustard uppercase mb-4 border-b-2 border-white/20 pb-1" data-i18n="act-t">Nodos:</p>
+                        <div class="grid grid-cols-1 gap-y-2 overflow-y-auto pr-1">
+                            <a href="https://ec.europa.eu/eurostat" target="_blank" class="node-link">Eurostat</a>
+                            <a href="https://www.ecb.europa.eu" target="_blank" class="node-link">ECB Bank</a>
+                            <a href="https://www.eea.europa.eu" target="_blank" class="node-link">EEA Agency</a>
+                            <a href="https://joint-research-centre.ec.europa.eu" target="_blank" class="node-link">JRC Comm.</a>
+                            <a href="https://www.enhr.net" target="_blank" class="node-link">ENHR Net</a>
+                            <a href="https://www.housingeurope.eu" target="_blank" class="node-link">Housing EU</a>
+                            <a href="https://www.espon.eu" target="_blank" class="node-link">ESPON Net</a>
                         </div>
-                        <div class="mt-auto pt-6 border-t border-white/20 text-[10px] font-black uppercase text-center opacity-40 italic">Urban Intelligence Unit</div>
+                        <div class="mt-auto pt-4 border-t border-white/20 text-[9px] font-black uppercase text-center opacity-40 italic">Urban Intelligence</div>
                     </div>
                 </div>
             </div>
 
             <!-- ITALIA -->
-            <div class="flip-card h-[640px] md:h-[680px] tilt-r" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card aspect-square tilt-r" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <!-- FRENTE -->
+                    <!-- FRONT: Info + Data -->
                     <div class="flip-card-front flex flex-col shadow-hard">
-                        <div class="flex justify-between items-start mb-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="flag flag-it"><div class="g"></div><div class="w"></div><div class="r"></div></div>
-                            <span class="text-[12px] font-black text-slate-400 uppercase tracking-widest">Scale: IT</span>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scale: IT</span>
                         </div>
-                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-6" data-i18n="t-it">Sistema Nacional</h2>
-                        <p class="card-body-text text-street mb-10" data-i18n="d-it">Información oficial catastral, legalidad del valor inmobiliario y bases de datos transaccionales nacionales.</p>
+                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-3" data-i18n="t-it">Sistema Nacional</h2>
+                        <p class="card-body-text text-street mb-4 flex-grow overflow-hidden" data-i18n="d-it">Información oficial catastral y bases de datos transaccionales.</p>
                         
-                        <div class="mt-auto bg-slate-50 comic-border-sm p-6 text-center">
-                            <div class="text-6xl font-heading text-royal mb-2">1,5M</div>
-                            <p class="text-[13px] font-black uppercase mb-1" data-i18n="bt-it">Zonas de Control</p>
+                        <div class="bg-slate-50 comic-border-sm p-4 text-center">
+                            <div class="stat-display font-heading text-royal">1,5M</div>
+                            <p class="text-[10px] font-black uppercase" data-i18n="bt-it">Zonas de Control</p>
                         </div>
                     </div>
-                    <!-- REVERSO -->
+                    <!-- BACK: Small Clickable Links -->
                     <div class="flip-card-back bg-street text-white flex flex-col">
-                        <p class="text-[14px] font-black text-accent uppercase mb-6 border-b-2 border-white/10 pb-2" data-i18n="act-t">Nodos Institucionales:</p>
-                        <div class="grid grid-cols-1 gap-y-4 overflow-y-auto pr-2">
-                            <a href="https://www.agenziaentrate.gov.it" target="_blank" class="node-link">Agenzia Entrate (OMI)</a>
-                            <a href="https://www.istat.it" target="_blank" class="node-link">ISTAT (IPAB)</a>
+                        <p class="text-[12px] font-black text-accent uppercase mb-4 border-b-2 border-white/10 pb-1" data-i18n="act-t">Nodos:</p>
+                        <div class="grid grid-cols-1 gap-y-2 overflow-y-auto pr-1">
+                            <a href="https://www.agenziaentrate.gov.it" target="_blank" class="node-link">Agenzia Entrate</a>
+                            <a href="https://www.istat.it" target="_blank" class="node-link">ISTAT</a>
                             <a href="https://www.bancaditalia.it" target="_blank" class="node-link">Banca d'Italia</a>
-                            <a href="https://www.mit.gov.it" target="_blank" class="node-link">Ministero MIT</a>
+                            <a href="https://www.mit.gov.it" target="_blank" class="node-link">MIT Govt</a>
                             <a href="https://www.isprambiente.gov.it" target="_blank" class="node-link">ISPRA</a>
-                            <a href="https://www.nomisma.it" target="_blank" class="node-link">Nomisma Spa</a>
+                            <a href="https://www.nomisma.it" target="_blank" class="node-link">Nomisma</a>
                             <a href="https://www.idealista.it/data" target="_blank" class="node-link">Idealista Data</a>
                         </div>
-                        <div class="mt-auto pt-6 border-t border-white/10 text-[10px] font-black uppercase text-center opacity-40 italic">Urban Intelligence Unit</div>
+                        <div class="mt-auto pt-4 border-t border-white/10 text-[9px] font-black uppercase text-center opacity-40 italic">Urban Intelligence</div>
                     </div>
                 </div>
             </div>
 
             <!-- TOSCANA -->
-            <div class="flip-card h-[640px] md:h-[680px] tilt-l" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card aspect-square tilt-l" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <!-- FRENTE -->
+                    <!-- FRONT: Info + Data -->
                     <div class="flip-card-front flex flex-col shadow-hard">
-                        <div class="flex justify-between items-start mb-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="flag flag-tos"></div>
-                            <span class="text-[12px] font-black text-slate-400 uppercase tracking-widest">Scale: TOS</span>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scale: TOS</span>
                         </div>
-                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-6" data-i18n="t-to">Ámbito Regional</h2>
-                        <p class="card-body-text text-street mb-10" data-i18n="d-to">Análisis económico territorial aplicado, estrategias regionales y capitalización de valores paisajísticos.</p>
+                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-3" data-i18n="t-to">Ámbito Regional</h2>
+                        <p class="card-body-text text-street mb-4 flex-grow overflow-hidden" data-i18n="d-to">Análisis económico aplicado y capitalización paisajística.</p>
                         
-                        <div class="mt-auto bg-slate-50 comic-border-sm p-6 text-center">
-                            <div class="text-6xl font-heading text-royal mb-2">18%</div>
-                            <p class="text-[13px] font-black uppercase mb-1" data-i18n="bt-to">PIB Sectorial</p>
+                        <div class="bg-slate-50 comic-border-sm p-4 text-center">
+                            <div class="stat-display font-heading text-royal">18%</div>
+                            <p class="text-[10px] font-black uppercase" data-i18n="bt-to">PIB Sectorial</p>
                         </div>
                     </div>
-                    <!-- REVERSO -->
+                    <!-- BACK: Small Clickable Links -->
                     <div class="flip-card-back bg-mustard text-royal flex flex-col">
-                        <p class="text-[14px] font-black text-royal uppercase mb-6 border-b-2 border-black/10 pb-2" data-i18n="act-t">Nodos Institucionales:</p>
-                        <div class="grid grid-cols-1 gap-y-4 overflow-y-auto pr-2">
+                        <p class="text-[12px] font-black text-royal uppercase mb-4 border-b-2 border-black/10 pb-1" data-i18n="act-t">Nodos:</p>
+                        <div class="grid grid-cols-1 gap-y-2 overflow-y-auto pr-1">
                             <a href="https://www.irpet.it" target="_blank" class="node-link text-royal">IRPET Toscana</a>
                             <a href="https://www.regione.toscana.it" target="_blank" class="node-link text-royal">Regione Toscana</a>
-                            <a href="https://www.autoritaidrica.toscana.it" target="_blank" class="node-link text-royal">Autorità Idrica (AIT)</a>
-                            <a href="https://www.paesaggiotoscana.it" target="_blank" class="node-link text-royal">Osservatorio Paesaggio</a>
-                            <a href="https://www.cist.unifi.it" target="_blank" class="node-link text-royal">CIST Toscana</a>
-                            <a href="https://www.tecno-casa.it" target="_blank" class="node-link text-royal">Tecnocasa Research</a>
+                            <a href="https://www.autoritaidrica.toscana.it" target="_blank" class="node-link text-royal">AIT Toscana</a>
+                            <a href="https://www.paesaggiotoscana.it" target="_blank" class="node-link text-royal">Obs. Paesaggio</a>
+                            <a href="https://www.cist.unifi.it" target="_blank" class="node-link text-royal">CIST Unifi</a>
+                            <a href="https://www.tecno-casa.it" target="_blank" class="node-link text-royal">Tecnocasa Res.</a>
                         </div>
-                        <div class="mt-auto pt-6 border-t border-black/10 text-[10px] font-black uppercase text-center opacity-40 italic">Urban Intelligence Unit</div>
+                        <div class="mt-auto pt-4 border-t border-black/10 text-[9px] font-black uppercase text-center opacity-40 italic">Urban Intelligence</div>
                     </div>
                 </div>
             </div>
 
             <!-- FIRENZE -->
-            <div class="flip-card h-[640px] md:h-[680px] tilt-r" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card aspect-square tilt-r" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <!-- FRENTE -->
+                    <!-- FRONT: Info + Data -->
                     <div class="flip-card-front flex flex-col shadow-hard">
-                        <div class="flex justify-between items-start mb-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div class="flag flag-fi"></div>
-                            <span class="text-[12px] font-black text-slate-400 uppercase tracking-widest">Scale: FI</span>
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Scale: FI</span>
                         </div>
-                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-6" data-i18n="t-fi">Contexto Local</h2>
-                        <p class="card-body-text text-street mb-10" data-i18n="d-fi">Análisis de micro-mercados, planificación táctica y dinámica urbana ante el turismo global.</p>
+                        <h2 class="card-header-text font-heading text-royal uppercase italic mb-3" data-i18n="t-fi">Contexto Local</h2>
+                        <p class="card-body-text text-street mb-4 flex-grow overflow-hidden" data-i18n="d-fi">Análisis de micro-mercados y planificación táctica urbana.</p>
                         
-                        <div class="mt-auto bg-slate-50 comic-border-sm p-6 text-center">
-                            <div class="text-6xl font-heading text-royal mb-2">-25%</div>
-                            <p class="text-[13px] font-black uppercase mb-1" data-i18n="bt-fi">Stock Residencial</p>
+                        <div class="bg-slate-50 comic-border-sm p-4 text-center">
+                            <div class="stat-display font-heading text-royal">-25%</div>
+                            <p class="text-[10px] font-black uppercase" data-i18n="bt-fi">Stock Residencial</p>
                         </div>
                     </div>
-                    <!-- REVERSO -->
+                    <!-- BACK: Small Clickable Links -->
                     <div class="flip-card-back bg-accent text-white flex flex-col">
-                        <p class="text-[14px] font-black text-white uppercase mb-6 border-b-2 border-white/20 pb-2" data-i18n="act-t">Nodos Institucionales:</p>
-                        <div class="grid grid-cols-1 gap-y-4 overflow-y-auto pr-2">
-                            <a href="https://www.comune.fi.it" target="_blank" class="node-link text-white">Comune di Firenze</a>
-                            <a href="https://www.dida.unifi.it" target="_blank" class="node-link text-white">UniFi DIDA (Arch.)</a>
-                            <a href="https://www.disei.unifi.it" target="_blank" class="node-link text-white">UniFi DISEI (Econ.)</a>
-                            <a href="https://www.autoritadibacino.it" target="_blank" class="node-link text-white">Autorità Bacino</a>
-                            <a href="https://www.fiaip.it" target="_blank" class="node-link text-white">FIAIP Firenze</a>
+                        <p class="text-[12px] font-black text-white uppercase mb-4 border-b-2 border-white/20 pb-1" data-i18n="act-t">Nodos:</p>
+                        <div class="grid grid-cols-1 gap-y-2 overflow-y-auto pr-1">
+                            <a href="https://www.comune.fi.it" target="_blank" class="node-link text-white">Comune FI</a>
+                            <a href="https://www.dida.unifi.it" target="_blank" class="node-link text-white">UniFi DIDA</a>
+                            <a href="https://www.disei.unifi.it" target="_blank" class="node-link text-white">UniFi DISEI</a>
+                            <a href="https://www.autoritadibacino.it" target="_blank" class="node-link text-white">Aut. Bacino</a>
+                            <a href="https://www.fiaip.it" target="_blank" class="node-link text-white">FIAIP FI</a>
+                            <a href="https://www.fimaa.it" target="_blank" class="node-link text-white">FIMAA FI</a>
                         </div>
-                        <div class="mt-auto pt-6 border-t border-white/20 text-[10px] font-black uppercase text-center opacity-40 italic">Urban Intelligence Unit</div>
+                        <div class="mt-auto pt-4 border-t border-white/20 text-[9px] font-black uppercase text-center opacity-40 italic">Urban Intelligence</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECCIÓN 2: INVESTIGACIONES CIENTÍFICAS -->
+        <!-- SECCIÓN 2: INVESTIGACIONES CIENTÍFICAS (ANALYSIS) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-10">
             
             <!-- REPORT A -->
-            <div class="flip-card h-[720px] md:h-[780px]" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card h-[700px] md:h-[750px]" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front p-12 flex flex-col border-t-[15px] border-royal shadow-hard">
-                        <div class="bg-royal text-white px-5 py-1 text-[12px] font-black mb-6 inline-block self-start uppercase">Analysis Report A</div>
-                        <h2 class="font-heading text-2xl md:text-3xl text-royal mb-6 leading-tight uppercase italic" data-i18n="rt-a">Floods do not sink prices, historical memory does</h2>
-                        <p class="text-[16px] md:text-[18px] font-bold leading-snug mb-8" data-i18n="ra-1">Según la investigación de Bellaver et al. (2025), el mercado inmobiliario solo capitaliza el riesgo tras una exposición repetida.</p>
+                    <div class="flip-card-front p-10 flex flex-col border-t-[15px] border-royal shadow-hard">
+                        <div class="bg-royal text-white px-5 py-1 text-[11px] font-black mb-6 inline-block self-start uppercase">Report A</div>
+                        <h2 class="font-heading text-xl md:text-2xl text-royal mb-6 leading-tight uppercase italic" data-i18n="rt-a">Floods do not sink prices, historical memory does</h2>
+                        <p class="text-[15px] md:text-[17px] font-bold leading-snug mb-8" data-i18n="ra-1">Según la investigación de Bellaver et al. (2025), el mercado inmobiliario solo capitaliza el riesgo tras una exposición repetida.</p>
                         
                         <div class="flex-grow flex flex-col justify-center items-center bg-slate-50 comic-border p-6 my-4">
-                            <div class="stat-hero font-heading text-royal">550K</div>
-                            <p class="text-[14px] md:text-[16px] font-black uppercase text-accent text-center" data-i18n="ra-hero">Transacciones Hipotecarias Analizadas</p>
+                            <div class="text-6xl font-heading text-royal">550K</div>
+                            <p class="text-[13px] font-black uppercase text-accent text-center" data-i18n="ra-hero">Transacciones Analizadas</p>
                         </div>
 
-                        <div class="text-right text-[12px] font-black uppercase italic text-royal animate-pulse mt-4" data-i18n="c-rev">Gira para el análisis detallado ➜</div>
+                        <div class="text-right text-[11px] font-black uppercase italic text-royal animate-pulse mt-4" data-i18n="c-rev">Gira para el análisis detallado ➜</div>
                     </div>
                     <div class="flip-card-back bg-street text-white p-12 flex flex-col justify-center text-center">
-                        <div class="viz-container">
+                        <div class="viz-box">
                             <div class="wave-layer"></div>
                             <div class="absolute inset-0 flex items-center justify-center font-heading text-4xl text-slate-300 opacity-20 uppercase tracking-[0.3em]">MEMORY</div>
                         </div>
-                        <div class="text-[90px] md:text-[120px] font-heading text-accent leading-none mb-4 italic">-4%</div>
-                        <h3 class="font-heading text-3xl uppercase italic mb-6" data-i18n="rb-a-t">Ajuste de Mercado</h3>
-                        <p class="text-[16px] md:text-[19px] font-bold leading-tight max-w-sm mx-auto" data-i18n="rb-a-d">En regiones con alta recurrencia (Toscana), donde la memoria del riesgo es alta, el mercado castiga el valor.</p>
-                        <div class="mt-10 text-[11px] font-black uppercase tracking-widest text-slate-500 italic">Bellaver et al. (2025) • Centrale dei Rischi Database</div>
+                        <div class="text-[80px] md:text-[100px] font-heading text-accent leading-none mb-4 italic">-4%</div>
+                        <h3 class="font-heading text-2xl md:text-3xl uppercase italic mb-6" data-i18n="rb-a-t">Ajuste de Mercado</h3>
+                        <p class="text-[15px] md:text-[17px] font-bold leading-tight max-w-sm mx-auto" data-i18n="rb-a-d">En regiones con alta recurrencia (Toscana), donde la memoria del riesgo es alta, el mercado castiga el valor.</p>
                     </div>
                 </div>
             </div>
 
             <!-- REPORT B -->
-            <div class="flip-card h-[720px] md:h-[780px]" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card h-[700px] md:h-[750px]" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front p-12 flex flex-col border-t-[15px] border-accent shadow-hard">
-                        <div class="bg-accent text-white px-5 py-1 text-[12px] font-black mb-6 inline-block self-start uppercase">Analysis Report B</div>
-                        <h2 class="font-heading text-2xl md:text-3xl text-royal mb-6 leading-tight uppercase italic" data-i18n="rt-b">The Impacts in Real Estate of Landscape Values</h2>
-                        <div class="space-y-6 text-[16px] md:text-[18px] font-bold leading-snug flex-grow">
-                            <p data-i18n="rb-1">Según Riccioli et al. (2021), los valores estéticos del paisaje forestal inyectan una plusvalía indirecta determinante en el mercado toscano.</p>
-                        </div>
+                    <div class="flip-card-front p-10 flex flex-col border-t-[15px] border-accent shadow-hard">
+                        <div class="bg-accent text-white px-5 py-1 text-[11px] font-black mb-6 inline-block self-start uppercase">Report B</div>
+                        <h2 class="font-heading text-xl md:text-2xl text-royal mb-6 leading-tight uppercase italic" data-i18n="rt-b">The Impacts in Real Estate of Landscape Values</h2>
+                        <p class="text-[15px] md:text-[17px] font-bold leading-snug mb-8" data-i18n="rb-1">Según Riccioli et al. (2021), los valores estéticos del paisaje forestal inyectan una plusvalía indirecta determinante en el mercado.</p>
                         
                         <div class="flex-grow flex flex-col justify-center items-center bg-slate-50 comic-border p-6 my-4">
-                            <div class="stat-hero font-heading text-royal">+3.1%</div>
-                            <p class="text-[14px] md:text-[16px] font-black uppercase text-accent text-center" data-i18n="rb-hero">Plusvalía por Paisaje Estético</p>
+                            <div class="text-6xl font-heading text-royal">+3.1%</div>
+                            <p class="text-[13px] font-black uppercase text-accent text-center" data-i18n="rb-hero">Plusvalía por Paisaje Estético</p>
                         </div>
 
-                        <div class="text-right text-[12px] font-black uppercase italic text-accent animate-pulse mt-4" data-i18n="c-rev">Gira para el análisis detallado ➜</div>
+                        <div class="text-right text-[11px] font-black uppercase italic text-accent animate-pulse mt-4" data-i18n="c-rev">Gira para el análisis detallado ➜</div>
                     </div>
                     <div class="flip-card-back bg-royal text-white p-12 flex flex-col justify-center text-center">
-                        <div class="viz-container">
-                            <div class="rank-bars">
-                                <div class="bar-unit h-full"></div>
-                                <div class="bar-unit h-4/5 bg-mustard"></div>
-                                <div class="bar-unit h-2/5 bg-accent"></div>
-                            </div>
-                            <div class="absolute inset-0 flex items-center justify-center font-heading text-4xl text-white opacity-10 uppercase tracking-[0.2em]">PAISAJE</div>
+                        <div class="rank-bars bg-white/5 comic-border-sm mb-6">
+                            <div class="bar-unit h-full"></div>
+                            <div class="bar-unit h-4/5 bg-mustard"></div>
+                            <div class="bar-unit h-2/5 bg-accent"></div>
                         </div>
-                        <div class="text-[90px] md:text-[120px] font-heading text-mustard leading-none mb-4 italic">+3.1%</div>
-                        <h3 class="font-heading text-3xl uppercase italic mb-6" data-i18n="rb-b-t">Efecto Paisaje</h3>
-                        <p class="text-[16px] md:text-[19px] font-bold leading-tight max-w-sm mx-auto" data-i18n="rb-b-d">Incremento promedio por proximidad extrema (< 100m) a paisajes forestales protegidos en la Toscana.</p>
-                        <div class="mt-10 text-[11px] font-black uppercase tracking-widest text-white/40 italic">Riccioli et al. (2021) • Evidence from Tuscany</div>
+                        <div class="text-[80px] md:text-[100px] font-heading text-mustard leading-none mb-4 italic">+3.1%</div>
+                        <h3 class="font-heading text-2xl md:text-3xl uppercase italic mb-6" data-i18n="rb-b-t">Efecto Paisaje</h3>
+                        <p class="text-[15px] md:text-[17px] font-bold leading-tight max-w-sm mx-auto" data-i18n="rb-b-d">Incremento promedio por proximidad extrema (< 100m) a paisajes forestales protegidos en la Toscana.</p>
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- FOOTER: CONTINUARÁ -->
-        <footer class="text-center py-24 space-y-12">
-            <h2 class="font-heading text-4xl md:text-7xl uppercase tracking-tighter italic text-royal" data-i18n="cta-main">¿TE INTERESAN ESTOS TEMAS?</h2>
-            <div class="pt-12">
-                <p class="font-heading text-6xl md:text-9xl text-street uppercase tracking-tighter italic animate-pulse" data-i18n="cont-text">CONTINUARÁ...</p>
-                <p class="text-slate-500 font-bold mt-4 uppercase text-lg tracking-widest">Urban Economics Research Lab</p>
+        <!-- FOOTER -->
+        <footer class="text-center py-16 space-y-10">
+            <h2 class="font-heading text-2xl md:text-5xl uppercase tracking-tighter italic text-royal" data-i18n="cta-main">¿TE INTERESAN ESTOS TEMAS?</h2>
+            <div class="pt-4">
+                <p class="font-heading text-xl md:text-4xl text-street uppercase tracking-tighter italic animate-pulse" data-i18n="cont-text">CONTINUARÁ...</p>
             </div>
         </footer>
 
@@ -365,46 +358,52 @@
     <script>
         const translations = {
             es: {
-                "t-ue": "Regulación Global", "d-ue": "Monitoreo de indicadores macroeconómicos y estabilidad financiera de los activos inmobiliarios europeos.",
-                "t-it": "Sistema Nacional", "d-it": "Información oficial catastral, legalidad del valor inmobiliario y bases de datos transaccionales nacionales.",
-                "t-to": "Ámbito Regional", "d-to": "Análisis económico territorial aplicado, estrategias regionales y capitalización de valores paisajísticos.",
-                "t-fi": "Contexto Local", "d-fi": "Análisis de micro-mercados, planificación táctica y dinámica urbana ante el turismo global.",
-                "act-t": "Nodos Institucionales:",
+                "t-ue": "Regulación Global", "d-ue": "Monitoreo de indicadores macroeconómicos y estabilidad financiera europea.",
+                "t-it": "Sistema Nacional", "d-it": "Información oficial catastral y bases de datos transaccionales nacionales.",
+                "t-to": "Ámbito Regional", "d-to": "Análisis económico aplicado y capitalización de valores paisajísticos.",
+                "t-fi": "Contexto Local", "d-fi": "Análisis de micro-mercados y planificación táctica ante la presión turística.",
+                "act-t": "Nodos:",
                 "bt-ue": "House Price Index", "bt-it": "Zonas de Control", "bt-to": "PIB Sectorial", "bt-fi": "Stock Residencial",
+                "rt-a": "Floods do not sink prices, historical memory does",
                 "ra-1": "Según la investigación de Bellaver et al. (2025), el mercado inmobiliario solo capitaliza el riesgo tras una exposición repetida.",
-                "ra-hero": "Transacciones Analizadas (2016-2024)",
+                "ra-hero": "Transacciones Analizadas",
                 "rb-a-t": "Ajuste de Mercado", "rb-a-d": "En regiones con alta recurrencia (Toscana), donde la memoria del riesgo es alta, el mercado castiga el valor.",
-                "rb-1": "Según Riccioli et al. (2021), los valores estéticos del paisaje forestal inyectan una plusvalía indirecta determinante en el mercado toscano.",
+                "rt-b": "The Impacts in Real Estate of Landscape Values",
+                "rb-1": "Según Riccioli et al. (2021), los valores estéticos del paisaje forestal inyectan una plusvalía indirecta determinante en el mercado.",
                 "rb-hero": "Plusvalía por Paisaje Estético",
                 "rb-b-t": "Efecto Paisaje", "rb-b-d": "Incremento promedio por proximidad extrema (< 100m) a paisajes forestales protegidos.",
                 "cta-main": "¿TE INTERESAN ESTOS TEMAS?", "cont-text": "CONTINUARÁ...", "c-rev": "Gira para el análisis detallado ➜"
             },
             it: {
-                "t-ue": "Regolazione Globale", "d-ue": "Monitoraggio degli indicatori macroeconomici e stabilità finanziaria degli asset immobiliari europei.",
-                "t-it": "Sistema Nazionale", "d-it": "Informazioni catastali ufficiali, legalità del valore immobiliare e database transazionali nazionali.",
-                "t-to": "Ambito Regionale", "d-to": "Analisi economica territoriale applicata, strategie regionali e capitalizzazione dei valori paesaggistici.",
-                "t-fi": "Contesto Locale", "d-fi": "Analisi dei micro-mercati e pianificazione tattica contro il turismo globale.",
-                "act-t": "Nodi Istituzionali:",
+                "t-ue": "Regolazione Globale", "d-ue": "Monitoraggio degli indicatori macroeconomici e stabilità finanziaria europea.",
+                "t-it": "Sistema Nazionale", "d-it": "Informazioni catastali ufficiali e database transazionali nazionali.",
+                "t-to": "Ambito Regionale", "d-to": "Analisi economica applicata e capitalizzazione dei valori paesaggistici.",
+                "t-fi": "Contesto Locale", "d-fi": "Analisi dei micro-mercati e pianificazione tattica contro il turismo.",
+                "act-t": "Nodi:",
                 "bt-ue": "House Price Index", "bt-it": "Zone di Controllo", "bt-to": "PIL Settoriale", "bt-fi": "Stock Abitativo",
+                "rt-a": "Floods do not sink prices, historical memory does",
                 "ra-1": "Secondo la ricerca di Bellaver et al. (2025), il mercato immobiliare capitalizza il rischio solo dopo esposizioni ripetute.",
-                "ra-hero": "Transazioni Analizzate (2016-2024)",
+                "ra-hero": "Transazioni Analizzate",
                 "rb-a-t": "Aggiustamento Mercato", "rb-a-d": "Nelle regioni con alta ricorrenza (Toscana), dove la memoria del rischio è alta, il mercato punisce il valore.",
-                "rb-1": "Secondo Riccioli et al. (2021), i valori estetici del paesaggio forestale iniettano un plusvalore indiretto determinante nel mercato toscano.",
-                "rb-hero": "Plusvalore per Paesaggio Estetico",
+                "rt-b": "The Impacts in Real Estate of Landscape Values",
+                "rb-1": "Secondo Riccioli et al. (2021), i valori estetici del paesaggio forestale iniettano un plusvalore indiretto nel mercato.",
+                "rb-hero": "Plusvalore Paesaggistico",
                 "rb-b-t": "Effetto Paesaggio", "rb-b-d": "Incremento medio rilevato per proprietà situate entro un raggio estremo di paesaggi forestali.",
                 "cta-main": "TI INTERESSANO QUESTI TEMI?", "cont-text": "CONTINUA...", "c-rev": "Gira per l'analisi dettagliata ➜"
             },
             en: {
-                "t-ue": "Global Regulation", "d-ue": "Monitoring of macroeconomic indicators and financial stability of European real estate assets.",
-                "t-it": "National System", "d-it": "Official cadastral info, real estate value legality and national transactional databases.",
-                "t-to": "Regional Level", "d-to": "Applied territorial economic analysis, regional strategies and landscape value capitalization.",
-                "t-fi": "Local Context", "d-fi": "Micro-market analysis, tactical planning and urban dynamics against global tourism.",
-                "act-t": "Institutional Nodes:",
+                "t-ue": "Global Regulation", "d-ue": "Monitoring of macroeconomic indicators and European financial stability.",
+                "t-it": "National System", "d-it": "Official cadastral info and national transactional databases.",
+                "t-to": "Regional Level", "d-to": "Applied economic analysis and regional landscape capitalization.",
+                "t-fi": "Local Context", "d-fi": "Micro-market analysis and tactical planning against global tourism pressure.",
+                "act-t": "Nodes:",
                 "bt-ue": "House Price Index", "bt-it": "Control Zones", "bt-to": "Sector GDP", "bt-fi": "Housing Stock",
+                "rt-a": "Floods do not sink prices, historical memory does",
                 "ra-1": "According to research by Bellaver et al. (2025), real estate market only capitalizes risk after repeated exposure.",
-                "ra-hero": "Transactions Analyzed (2016-2024)",
+                "ra-hero": "Transactions Analyzed",
                 "rb-a-t": "Market Adjustment", "rb-a-d": "In regions with high recurrence (Tuscany), where risk memory is high, market punishes value.",
-                "rb-1": "According to Riccioli et al. (2021), aesthetic landscape values inject an indirect premium into the Tuscan market.",
+                "rt-b": "The Impacts in Real Estate of Landscape Values",
+                "rb-1": "According to Riccioli et al. (2021), aesthetic landscape values inject an indirect premium into the market.",
                 "rb-hero": "Aesthetic Landscape Premium",
                 "rb-b-t": "Landscape Effect", "rb-b-d": "Average increase for extreme proximity (< 100m) to protected forest landscapes.",
                 "cta-main": "ARE YOU INTERESTED IN THESE TOPICS?", "cont-text": "TO BE CONTINUED...", "c-rev": "Flip for detailed analysis ➜"
